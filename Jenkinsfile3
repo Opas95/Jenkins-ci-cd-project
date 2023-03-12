@@ -14,12 +14,12 @@ pipeline {
                   sh 'mvn clean install -f pom.xml'
             }
         }
-        stage('Test'){
+        stage('mvn test'){
             steps{
                 sh '/opt/maven/bin/mvn test'
             }
         }    
-        stage('post build'){   
+        stage('junit test'){   
             steps{
                 always {
                     junit '/var/lib/jenkins/workspace/JavaWebcalculator/target/surefire-reports/*.xml'
